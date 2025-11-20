@@ -1,0 +1,6 @@
+pkg_mgr_update_cmd: "yum makecache -y"
+pkg_mgr_install: "yum install -y"
+nginx_pkg: "nginx"
+node_exporter_user: "node_exporter"
+prometheus_user: "prometheus"
+grafana_pkg: "grafana"

@@ -1,0 +1,25 @@
+- name: Load config and apply common settings
+  hosts: all
+  gather_facts: true
+  vars_files:
+    - ../config.yaml
+  roles:
+    - role: common
+
+- name: Deploy monitoring agents (Node Exporter)
+  hosts: "{{ services.monitoring.agents_group }}"
+  gather_facts: true
+  vars_files:
+    - ../config.yaml
+  roles:
+    - role: node_exporter
+
+- name: Deploy Prometheus server
+  hosts: "{{ services.monitoring.stack_group }}"
+  gather_facts: true
+  vars_files:
+    - ../config.yaml
+  roles:
+    - role: prometheus
+
+

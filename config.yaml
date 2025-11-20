@@ -1,0 +1,30 @@
+services:
+  web:
+    enabled: true
+    hosts_group: "web"
+    nginx:
+      listen_port: 80
+      root: "/var/www/html"
+      index: "index.html"
+      server_name: "_"
+  monitoring:
+    enabled: true
+    agents_group: "monitoring_agents"
+    stack_group: "monitoring_stack"
+    node_exporter:
+      version: "1.8.1"
+      port: 9100
+    prometheus:
+      version: "2.53.0"
+      port: 9090
+      scrape_interval: "15s"
+      targets:
+        - "192.168.56.102:9100"
+        - "192.168.56.103:9100"
+        - "192.168.56.104:9100"
+    grafana:
+      enabled: true
+      port: 3000
+      admin_user: "admin"
+      admin_password: "admin"
+      datasource_name: "Prometheus"

@@ -1,0 +1,29 @@
+all:
+  children:
+    control:
+      hosts:
+        control1:
+          ansible_host: 192.168.56.102
+          ansible_user: valdez
+    ubuntu_managed:
+      hosts:
+        ubuntu1:
+          ansible_host: 192.168.56.103
+          ansible_user: valdezmanage
+    centos_managed:
+      hosts:
+        centos1:
+          ansible_host: 192.168.56.104
+          ansible_user: valdez
+    web:
+      hosts:
+        ubuntu1:
+        centos1:
+    monitoring_agents:
+      hosts:
+        control1:
+        ubuntu1:
+        centos1:
+    monitoring_stack:
+      hosts:
+        control1:

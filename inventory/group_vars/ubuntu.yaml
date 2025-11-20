@@ -1,0 +1,7 @@
+pkg_mgr_update_cmd: "apt-get update -y"
+pkg_mgr_install: "apt-get install -y"
+nginx_pkg: "nginx"
+node_exporter_user: "node_exporter"
+prometheus_user: "prometheus"
+grafana_pkg: "grafana"
+
